@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_172259) do
+ActiveRecord::Schema.define(version: 2021_10_07_173751) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -55,11 +55,10 @@ ActiveRecord::Schema.define(version: 2021_10_07_172259) do
     t.integer "hometown_id"
   end
 
-  create_table "vendors", force: :cascade do |t|
-    t.string "name"
-    t.string "category"
-    t.string "description"
-    t.string "price_range"
+  create_table "visits", force: :cascade do |t|
+    t.integer "trip_id"
+    t.integer "festival_id"
+    t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
