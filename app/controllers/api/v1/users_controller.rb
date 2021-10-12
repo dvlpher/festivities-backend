@@ -5,12 +5,17 @@ class Api::V1::UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users
+    #ender json: @users
+    
   end
 
   # GET /users/1
   def show
-    render json: @user
+    #render json: @user
+
+    #json_string = MovieSerializer.new(movie).serializable_hash.to_json
+    user_json = UserSerializer.new(@user).serializable_hash.to_json
+        render json: user_json
   end
 
   # POST /users
