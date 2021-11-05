@@ -16,11 +16,18 @@ def get_current_user
     if logged_in?
         render json: current_user
     else
-        render json:
+        render json: {
         error: "No one is logged in"
+        }
     end
-
 end
 
+
+def destroy
+    session.clear
+    render json: {
+        notice: "successfully logged out"
+    }, status: :ok
+end
 
 end
