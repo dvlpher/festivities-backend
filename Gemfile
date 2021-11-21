@@ -27,7 +27,7 @@ gem 'rack-cors'
 
 gem 'jsonapi-serializer'
 
-#gem 'fast_jsonapi'
+gem 'fast_jsonapi'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

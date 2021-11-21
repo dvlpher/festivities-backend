@@ -4,5 +4,5 @@ class Trip < ApplicationRecord
     has_many :festivals, through: :visits
     has_many :locations, through: :festivals
 
-    # validates :name, :user, presence: true
+     validates :name, :user, presence: true
 end
