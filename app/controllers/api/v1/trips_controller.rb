@@ -24,10 +24,10 @@ class Api::V1::TripsController < ApplicationController
     # POST /trips
     def create
       # byebug
-      @trip = current_user.trips.build(trip_params)
+      @trip = Trip.new(trip_params)
   
       if @trip.save
-        render json:  TripSerializer.new(@trip), status: :created
+        render json:  TripSerializer.new(@trip).serializable_hash.to_json, status: :created
       else
         error_resp = {
           error: @trip.errors.full_messages.to_sentence
@@ -68,7 +68,7 @@ class Api::V1::TripsController < ApplicationController
   
       # Only allow a trusted parameter "white list" through.
       def trip_params
-        params.require(:trip).permit(:start_date, :end_date, :name)
+        params.require(:trip).permit(:start_date, :end_date, :name, :user_id)
       end
   end
 
